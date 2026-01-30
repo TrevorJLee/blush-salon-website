@@ -10,7 +10,7 @@ const Stylists = () => {
     {
       name: 'Jennifer',
       title: 'Manager / Stylist',
-      bio: 'Jennifer is a cosmetologist with over 20 years of experience. She specializes in cutting, coloring, and styling all hair types and aims to help clients relax and feel better about themselves. Her professional mission centers on making every client feel beautiful through exceptional service. Beyond the salon, Jennifer is a devoted family woman who is married and has four children—two sons and two daughters.',
+      bio: 'Jennifer is a cosmetologist with over 20 years of experience. She specializes in cutting, coloring, and styling all hair types and aims to help clients relax and feel better about themselves. Her professional mission centers on making every client feel beautiful through exceptional service. Beyond the salon, Jennifer is a devoted family woman who is married and has four children, two sons and two daughters.',
       specialties: ['Cutting', 'Coloring', 'All Hair Types'],
       image: jenniferImg,
     },
@@ -24,7 +24,7 @@ const Stylists = () => {
     {
       name: 'Barbara',
       title: 'Stylist',
-      bio: 'Barbara Jeanne is a licensed cosmetologist who truly loves being behind the chair. From a young age, she knew this is exactly where she was meant to be. Barbara strives to create a comfortable, welcoming environment while enhancing each client\'s natural beauty - helping people feel happier, one hair appointment at a time. She would love to welcome you into her chair and be a part of your hair journey.',
+      bio: 'Barbara Jeanne is a licensed cosmetologist who truly loves being behind the chair. From a young age, she knew this is exactly where she was meant to be. Barbara strives to create a comfortable, welcoming environment while enhancing each client\'s natural beauty, helping people feel happier, one hair appointment at a time. She would love to welcome you into her chair and be a part of your hair journey.',
       specialties: ['Natural Beauty Enhancement', 'Personalized Styling'],
       image: barbaraImg,
     },
@@ -78,7 +78,7 @@ const Stylists = () => {
                 <div className={`${!isEven ? 'md:order-1' : 'md:order-2'}`}>
                   <h2 className="font-script text-5xl sm:text-6xl text-blush-pink mb-2 text-center">{stylist.name}</h2>
                   <p className="text-sm text-blush-gold uppercase tracking-wider mb-6 text-center">{stylist.title}</p>
-                  <p className="text-blush-dark leading-relaxed">{stylist.bio}</p>
+                  <p className="text-blush-dark leading-relaxed text-center">{stylist.bio}</p>
                 </div>
               </div>
             </div>
