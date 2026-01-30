@@ -10,7 +10,7 @@ const Careers = () => {
           className="absolute inset-0 bg-cover"
           style={{ backgroundImage: `url(${flowerWall2Img})`, backgroundPosition: 'center 30%' }}
         ></div>
-        <div className="absolute inset-0 bg-white/75"></div>
+        <div className="absolute inset-0 bg-white/50"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="font-script text-5xl sm:text-6xl text-blush-dark mb-4">Join Our Team</h1>
           <p className="text-xl text-blush-dark/80 max-w-2xl mx-auto">

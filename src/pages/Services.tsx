@@ -67,7 +67,7 @@ const Services = () => {
           className="absolute inset-0 bg-cover"
           style={{ backgroundImage: `url(${flowerWallImg})`, backgroundPosition: 'center 30%' }}
         ></div>
-        <div className="absolute inset-0 bg-white/75"></div>
+        <div className="absolute inset-0 bg-white/50"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="font-script text-5xl sm:text-6xl text-blush-dark mb-6">Our Services</h1>
           <p className="text-xl text-blush-dark leading-relaxed max-w-3xl mx-auto">
@@ -139,23 +139,6 @@ const Services = () => {
               Call (251) 501-1996
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* Pricing Note */}
-      <section className="bg-blush-pink py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm text-white mb-4">
-            <strong>Note:</strong> Prices may vary based on hair length, thickness, and complexity. Consultation recommended for accurate pricing.
-          </p>
-          <a
-            href="https://na2.meevo.com/CustomerPortal/onlinebooking/booking/guestinfo?tenantId=501213&locationId=501583"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-white text-blush-pink px-8 py-3 text-sm tracking-wider uppercase hover:bg-blush-dark hover:text-white transition-colors duration-200 rounded-lg"
-          >
-            Book Now
-          </a>
         </div>
       </section>
 

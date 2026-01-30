@@ -45,7 +45,7 @@ const Stylists = () => {
           className="absolute inset-0 bg-cover"
           style={{ backgroundImage: `url(${chandelierImg})`, backgroundPosition: 'center 65%' }}
         ></div>
-        <div className="absolute inset-0 bg-white/75"></div>
+        <div className="absolute inset-0 bg-white/50"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="font-script text-5xl sm:text-6xl text-blush-dark mb-4">Meet Our Team</h1>
           <p className="text-xl text-blush-dark/80 max-w-2xl mx-auto">
@@ -91,7 +91,7 @@ const Stylists = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-script text-3xl sm:text-4xl text-blush-pink mb-4">Want to Join Our Team?</h2>
           <p className="text-lg text-blush-dark mb-8 max-w-2xl mx-auto">
-            We're always looking for talented, passionate individuals to join the Blush family. If you love making people feel beautiful, we'd love to hear from you.
+            We are always looking for talented, passionate individuals to join the Blush family. If you love making people feel beautiful, we would love to hear from you.
           </p>
           <Link
             to="/careers"
