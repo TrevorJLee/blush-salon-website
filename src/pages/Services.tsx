@@ -76,12 +76,17 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Pricing Note */}
+      {/* Book Now Bar */}
       <section className="bg-blush-pink py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm text-white">
-            <strong>Note:</strong> Prices may vary based on hair length, thickness, and complexity. Consultation recommended for accurate pricing.
-          </p>
+          <a
+            href="https://na2.meevo.com/CustomerPortal/onlinebooking/booking/guestinfo?tenantId=501213&locationId=501583"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-white text-blush-pink px-8 py-3 text-sm tracking-wider uppercase hover:bg-blush-dark hover:text-white transition-colors duration-200 rounded-lg"
+          >
+            Book Now
+          </a>
         </div>
       </section>
 
@@ -134,6 +139,23 @@ const Services = () => {
               Call (251) 501-1996
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Pricing Note */}
+      <section className="bg-blush-pink py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-sm text-white mb-4">
+            <strong>Note:</strong> Prices may vary based on hair length, thickness, and complexity. Consultation recommended for accurate pricing.
+          </p>
+          <a
+            href="https://na2.meevo.com/CustomerPortal/onlinebooking/booking/guestinfo?tenantId=501213&locationId=501583"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-white text-blush-pink px-8 py-3 text-sm tracking-wider uppercase hover:bg-blush-dark hover:text-white transition-colors duration-200 rounded-lg"
+          >
+            Book Now
+          </a>
         </div>
       </section>
 
