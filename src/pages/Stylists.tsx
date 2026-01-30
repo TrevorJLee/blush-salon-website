@@ -45,10 +45,10 @@ const Stylists = () => {
           className="absolute inset-0 bg-cover"
           style={{ backgroundImage: `url(${chandelierImg})`, backgroundPosition: 'center 65%' }}
         ></div>
-        <div className="absolute inset-0 bg-white/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/45 to-black/35"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="font-script text-5xl sm:text-6xl text-blush-dark mb-4">Meet Our Team</h1>
-          <p className="text-xl text-blush-dark/80 max-w-2xl mx-auto">
+          <h1 className="font-script text-5xl sm:text-6xl text-white mb-4">Meet Our Team</h1>
+          <p className="text-xl text-white/90 max-w-2xl mx-auto">
             Our talented stylists are dedicated to helping you look and feel your best. Get to know the people behind the magic.
           </p>
         </div>

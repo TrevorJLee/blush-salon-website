@@ -10,10 +10,10 @@ const Careers = () => {
           className="absolute inset-0 bg-cover"
           style={{ backgroundImage: `url(${flowerWall2Img})`, backgroundPosition: 'center 30%' }}
         ></div>
-        <div className="absolute inset-0 bg-white/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/45 to-black/35"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="font-script text-5xl sm:text-6xl text-blush-dark mb-4">Join Our Team</h1>
-          <p className="text-xl text-blush-dark/80 max-w-2xl mx-auto">
+          <h1 className="font-script text-5xl sm:text-6xl text-white mb-4">Join Our Team</h1>
+          <p className="text-xl text-white/90 max-w-2xl mx-auto">
             Interested in joining the Blush family? Fill out the form below and we'll be in touch!
           </p>
         </div>

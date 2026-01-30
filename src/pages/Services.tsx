@@ -67,10 +67,10 @@ const Services = () => {
           className="absolute inset-0 bg-cover"
           style={{ backgroundImage: `url(${flowerWallImg})`, backgroundPosition: 'center 30%' }}
         ></div>
-        <div className="absolute inset-0 bg-white/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/45 to-black/35"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="font-script text-5xl sm:text-6xl text-blush-dark mb-6">Our Services</h1>
-          <p className="text-xl text-blush-dark leading-relaxed max-w-3xl mx-auto">
+          <h1 className="font-script text-5xl sm:text-6xl text-white mb-6">Our Services</h1>
+          <p className="text-xl text-white leading-relaxed max-w-3xl mx-auto">
             From cuts and color to highlights and extensions, our talented stylists are dedicated to helping you look and feel your best.
           </p>
         </div>
