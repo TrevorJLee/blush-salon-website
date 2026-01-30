@@ -1,5 +1,5 @@
 import ServiceCard from '../components/ServiceCard';
-import flowerWallImg from '../assets/flower_wall_cabinent.jpeg';
+import flowerWallImg from '../assets/flower_wall.jpeg';
 
 const Services = () => {
   const serviceCategories = [
