@@ -18,13 +18,13 @@ const ContactForm = ({ formType = 'contact' }: ContactFormProps) => {
     const formData = new FormData(form);
 
     // Build email body from form data
-    const firstName = formData.get('firstName') || '';
-    const lastName = formData.get('lastName') || '';
-    const email = formData.get('email') || '';
-    const phone = formData.get('phone') || '';
-    const message = formData.get('message') || '';
-    const position = formData.get('position') || '';
-    const subject = formData.get('subject') || '';
+    const firstName = formData.get('firstName')?.toString() || '';
+    const lastName = formData.get('lastName')?.toString() || '';
+    const email = formData.get('email')?.toString() || '';
+    const phone = formData.get('phone')?.toString() || '';
+    const message = formData.get('message')?.toString() || '';
+    const position = formData.get('position')?.toString() || '';
+    const subject = formData.get('subject')?.toString() || '';
 
     const isCareer = formType === 'career';
     const emailSubject = isCareer

@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import ContactForm from '../components/ContactForm';
 import chandelierImg from '../assets/chandelier.jpg';

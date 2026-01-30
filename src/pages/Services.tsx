@@ -100,7 +100,7 @@ const Services = () => {
                       key={serviceIndex}
                       name={service.name}
                       price={service.price}
-                      description={service.description}
+                      description={'description' in service ? service.description : undefined}
                       duration={'duration' in service ? service.duration : undefined}
                     />
                   ))}

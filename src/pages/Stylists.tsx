@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import StylistCard from '../components/StylistCard';
 import jenniferImg from '../assets/stylists/Jennifer.jpg';
 import myahImg from '../assets/stylists/Myah.jpeg';
 import barbaraImg from '../assets/stylists/Barbara.jpeg';
