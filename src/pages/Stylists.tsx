@@ -31,7 +31,7 @@ const Stylists = () => {
     {
       name: 'Myah',
       title: 'Stylist',
-      bio: 'Myah Grace Riggs is a recent graduate of Baystyle Academy of Cosmetology. She currently resides in Foley, Alabama, and has a year of experience doing hair under her belt. She also has experience in event hair and makeup, such as weddings and dances. Myah currently specializes in blonding and gray coverage. She is passionate about making people feel confident in themselves and their hair. As a baby stylist, she is devoted to learning new styles and techniques every day.',
+      bio: 'Myah Grace Riggs is a recent graduate of Baystyle Academy of Cosmetology. She currently resides in Foley, Alabama, and has a year of experience doing hair under her belt. She also has experience in event hair and makeup, such as weddings and dance recitals. Myah currently specializes in blonding and gray coverage. She is passionate about making people feel confident in themselves and their hair. As a baby stylist, she is devoted to learning new styles and techniques every day.',
       specialties: ['Blonding', 'Gray Coverage', 'Event Hair & Makeup'],
       image: myahImg,
     },
