@@ -199,7 +199,7 @@ const Home = () => {
           className="absolute inset-0 bg-top"
           style={{ backgroundImage: `url(${flowerWallImg})`, backgroundSize: 'cover' }}
         ></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/45 to-black/35"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/30 to-black/20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
           <div className="flex flex-col items-center text-center gap-8">
             {/* Logo */}
