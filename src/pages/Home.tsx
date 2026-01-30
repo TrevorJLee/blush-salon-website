@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import ContactForm from '../components/ContactForm';
 import chandelierImg from '../assets/chandelier.jpg';
-import flowerWallImg from '../assets/flower_wall_cabinent.jpeg';
+import flowerWallImg from '../assets/flower_wall_cabinent_cropped.jpg';
 import logoImg from '../assets/white_logo_transparent.png';
 
 const Home = () => {
@@ -201,7 +201,7 @@ const Home = () => {
       <section className="relative aspect-square md:aspect-auto md:min-h-[70vh] flex items-center">
         <div
           className="absolute inset-0 bg-top"
-          style={{ backgroundImage: `url(${flowerWallImg})`, backgroundSize: isMobile ? '180%' : 'cover' }}
+          style={{ backgroundImage: `url(${flowerWallImg})`, backgroundSize: 'cover' }}
         ></div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/45 to-black/35"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
