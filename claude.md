@@ -21,7 +21,6 @@ https://blushhairandspa.com
 
 ## Services
 - Hair cuts, color treatment, highlights, extensions
-- Licensed esthetician providing personalized facial treatments
 - Team-based approach to individualized styles
 
 ## Current Website Sections

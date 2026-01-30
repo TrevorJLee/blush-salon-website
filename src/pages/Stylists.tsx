@@ -9,8 +9,8 @@ const Stylists = () => {
   const stylists = [
     {
       name: 'Jennifer',
-      title: 'Senior Stylist',
-      bio: 'Jennifer is a cosmetologist with over 19 years of experience. She specializes in cutting, coloring, and styling all hair types and aims to help clients relax and feel better about themselves. Her professional mission centers on making every client feel beautiful through exceptional service. Beyond the salon, Jennifer is a devoted family woman who is married and has four children—two sons and two daughters.',
+      title: 'Manager / Stylist',
+      bio: 'Jennifer is a cosmetologist with over 20 years of experience. She specializes in cutting, coloring, and styling all hair types and aims to help clients relax and feel better about themselves. Her professional mission centers on making every client feel beautiful through exceptional service. Beyond the salon, Jennifer is a devoted family woman who is married and has four children—two sons and two daughters.',
       specialties: ['Cutting', 'Coloring', 'All Hair Types'],
       image: jenniferImg,
     },
@@ -49,7 +49,7 @@ const Stylists = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="font-script text-5xl sm:text-6xl text-blush-dark mb-4">Meet Our Team</h1>
           <p className="text-xl text-blush-dark/80 max-w-2xl mx-auto">
-            Our talented stylists and estheticians are dedicated to helping you look and feel your best. Get to know the people behind the magic.
+            Our talented stylists are dedicated to helping you look and feel your best. Get to know the people behind the magic.
           </p>
         </div>
       </section>

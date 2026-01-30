@@ -7,10 +7,6 @@ import logoImg from '../assets/white_logo_transparent.png';
 const Home = () => {
   const allReviews = [
     {
-      quote: "I am still in awe of the hair miracle these ladies did for me! I have been trying to get this style and color done at 3 other places and left sad and disappointed each time. Not this time, I am so very pleased! Elizabeth was my stylist and she did an amazing job!",
-      author: 'Amanda G.',
-    },
-    {
       quote: "Super happy with my hair and the experience that I had with Jennifer. She listens to what you want and is very professional with her suggestions. The salon is so pretty with all the chandeliers, pink, and open concept. Can't wait for my next appointment!",
       author: 'Tracy M.',
     },
