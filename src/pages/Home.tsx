@@ -3,46 +3,21 @@ import ContactForm from '../components/ContactForm';
 import chandelierImg from '../assets/chandelier.jpg';
 import flowerWallImg from '../assets/flower_wall_cabinent_cropped.jpg';
 import logoImg from '../assets/white_logo_transparent.png';
+import { reviews } from '../data/reviews';
+import gallery1 from '../assets/gallery_1.jpeg';
+import gallery2 from '../assets/gallery_2.jpeg';
+import gallery3 from '../assets/gallery_3.jpeg';
+import gallery4 from '../assets/gallery_4.jpeg';
+
+const galleryImages = [
+  { src: gallery1, alt: 'Blush front desk with chandeliers and styling stations' },
+  { src: gallery2, alt: 'Salon waiting area with pink curtains and floral decor' },
+  { src: gallery3, alt: 'Shampoo stations with rose wall and gold mirrors' },
+  { src: gallery4, alt: 'Pink petal chandelier with gold accents' },
+];
 
 const Home = () => {
-  const allReviews = [
-    {
-      quote: "Super happy with my hair and the experience that I had with Jennifer. She listens to what you want and is very professional with her suggestions. The salon is so pretty with all the chandeliers, pink, and open concept. Can't wait for my next appointment!",
-      author: 'Tracy M.',
-    },
-    {
-      quote: "Had a wonderful experience today! I needed a change and I'm growing out my grays. Jennifer was AWESOME! She gave me a great cut and blended my grays so I don't feel so frumpy anymore! Sassy is back! Thanks for everything!!!",
-      author: 'Christy G.',
-    },
-    {
-      quote: "Awesome stylists that can take care of everything from your holiday styles to making your men and children look dapper!!!",
-      author: 'Alex O.',
-    },
-    {
-      quote: "Great energy and experienced employees. I'll be going back there again soon.",
-      author: 'Michael B.',
-    },
-    {
-      quote: "Best balayage I've ever had! The color is exactly what I wanted. The team here really knows what they're doing.",
-      author: 'Sarah L.',
-    },
-    {
-      quote: "Love this place! Clean, beautiful salon with talented stylists. Jennifer did my hair for my wedding and it was perfect!",
-      author: 'Emily R.',
-    },
-    {
-      quote: "I've been to many salons in the area and Blush is by far the best. Professional, friendly, and the results are always amazing.",
-      author: 'Jessica T.',
-    },
-    {
-      quote: "My daughter and I both get our hair done here. The stylists are so patient and creative. We always leave happy!",
-      author: 'Lisa M.',
-    },
-    {
-      quote: "Finally found a salon that understands curly hair! The cut and styling were perfect. Highly recommend!",
-      author: 'Rachel P.',
-    },
-  ];
+  const allReviews = reviews;
 
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   const [isResetting, setIsResetting] = useState(false);
@@ -51,6 +26,59 @@ const Home = () => {
   const [dragOffset, setDragOffset] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
+
+  // Gallery state
+  const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
+  const [isGalleryDragging, setIsGalleryDragging] = useState(false);
+  const [galleryDragStartX, setGalleryDragStartX] = useState(0);
+  const [galleryDragOffset, setGalleryDragOffset] = useState(0);
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const galleryScrollAccumulator = useRef(0);
+
+  // Gallery auto-rotate
+  useEffect(() => {
+    if (isGalleryDragging) return;
+    const interval = setInterval(() => {
+      setCurrentGalleryIndex((prev) => (prev + 1) % galleryImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isGalleryDragging]);
+
+  // Gallery drag handlers
+  const handleGalleryDragStart = (clientX: number) => {
+    setIsGalleryDragging(true);
+    setGalleryDragStartX(clientX);
+    setGalleryDragOffset(0);
+  };
+  const handleGalleryDragMove = (clientX: number) => {
+    if (!isGalleryDragging) return;
+    setGalleryDragOffset(clientX - galleryDragStartX);
+  };
+  const handleGalleryDragEnd = () => {
+    if (!isGalleryDragging) return;
+    setIsGalleryDragging(false);
+    const threshold = 50;
+    if (galleryDragOffset > threshold) {
+      setCurrentGalleryIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+    } else if (galleryDragOffset < -threshold) {
+      setCurrentGalleryIndex((prev) => (prev + 1) % galleryImages.length);
+    }
+    setGalleryDragOffset(0);
+  };
+  const handleGalleryWheel = (e: React.WheelEvent) => {
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+      e.preventDefault();
+      galleryScrollAccumulator.current += e.deltaX;
+      const threshold = 50;
+      if (galleryScrollAccumulator.current > threshold) {
+        setCurrentGalleryIndex((prev) => (prev + 1) % galleryImages.length);
+        galleryScrollAccumulator.current = 0;
+      } else if (galleryScrollAccumulator.current < -threshold) {
+        setCurrentGalleryIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+        galleryScrollAccumulator.current = 0;
+      }
+    }
+  };
 
   // Check for mobile viewport
   useEffect(() => {
@@ -326,6 +354,89 @@ const Home = () => {
                     : 'bg-white/30 hover:bg-white/60 w-2'
                 }`}
                 aria-label={`Go to review ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-10 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-6">
+            <h2 className="font-script text-4xl sm:text-5xl text-blush-pink mb-4">Our Salon</h2>
+          </div>
+
+          <div className="relative">
+          {/* Left Arrow */}
+          <button
+            onClick={() => setCurrentGalleryIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)}
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-md transition-colors"
+            aria-label="Previous photo"
+          >
+            <svg className="w-5 h-5 sm:w-6 sm:h-6 text-blush-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          {/* Right Arrow */}
+          <button
+            onClick={() => setCurrentGalleryIndex((prev) => (prev + 1) % galleryImages.length)}
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-md transition-colors"
+            aria-label="Next photo"
+          >
+            <svg className="w-5 h-5 sm:w-6 sm:h-6 text-blush-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+          <div
+            ref={galleryRef}
+            className="relative overflow-hidden cursor-grab active:cursor-grabbing select-none"
+            onMouseDown={(e) => { e.preventDefault(); handleGalleryDragStart(e.clientX); }}
+            onMouseMove={(e) => handleGalleryDragMove(e.clientX)}
+            onMouseUp={handleGalleryDragEnd}
+            onMouseLeave={() => { if (isGalleryDragging) handleGalleryDragEnd(); }}
+            onTouchStart={(e) => handleGalleryDragStart(e.touches[0].clientX)}
+            onTouchMove={(e) => handleGalleryDragMove(e.touches[0].clientX)}
+            onTouchEnd={handleGalleryDragEnd}
+            onWheel={handleGalleryWheel}
+          >
+            <div
+              className={`flex ${!isGalleryDragging ? 'transition-transform duration-500 ease-in-out' : ''}`}
+              style={{
+                transform: `translateX(calc(-${currentGalleryIndex * 100}% + ${galleryDragOffset}px))`,
+              }}
+            >
+              {galleryImages.map((image, index) => (
+                <div
+                  key={index}
+                  className="w-full flex-shrink-0"
+                >
+                  <div className="aspect-[4/3] rounded-lg overflow-hidden shadow-md border-4 border-blush-pink">
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-cover"
+                      draggable={false}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          </div>
+
+          {/* Gallery Indicators */}
+          <div className="flex justify-center gap-2 mt-8">
+            {galleryImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentGalleryIndex(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === currentGalleryIndex
+                    ? 'bg-blush-pink w-8'
+                    : 'bg-blush-pink/30 hover:bg-blush-pink/60 w-2'
+                }`}
+                aria-label={`Go to photo ${index + 1}`}
               />
             ))}
           </div>
