@@ -14,6 +14,10 @@ const Footer = () => {
                   src={logoImg}
                   alt="Blush Hair & Spa"
                   className="w-36 h-auto"
+                  width={960}
+                  height={599}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </Link>

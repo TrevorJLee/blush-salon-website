@@ -32,7 +32,6 @@ const Home = () => {
   const [isGalleryDragging, setIsGalleryDragging] = useState(false);
   const [galleryDragStartX, setGalleryDragStartX] = useState(0);
   const [galleryDragOffset, setGalleryDragOffset] = useState(0);
-  const galleryRef = useRef<HTMLDivElement>(null);
   const galleryScrollAccumulator = useRef(0);
 
   // Gallery auto-rotate
@@ -43,6 +42,11 @@ const Home = () => {
     }, 5000);
     return () => clearInterval(interval);
   }, [isGalleryDragging]);
+
+  useEffect(() => {
+    const nextImage = new Image();
+    nextImage.src = galleryImages[(currentGalleryIndex + 1) % galleryImages.length].src;
+  }, [currentGalleryIndex]);
 
   // Gallery drag handlers
   const handleGalleryDragStart = (clientX: number) => {
@@ -218,15 +222,21 @@ const Home = () => {
     }
   };
 
+  const currentGalleryImage = galleryImages[currentGalleryIndex];
 
   return (
     <div>
       {/* Hero Section */}
       <section className="relative aspect-square md:aspect-auto md:min-h-[70vh] flex items-center">
-        <div
-          className="absolute inset-0 bg-top"
-          style={{ backgroundImage: `url(${flowerWallImg})`, backgroundSize: 'cover' }}
-        ></div>
+        <img
+          src={flowerWallImg}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover object-top"
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/30 to-black/20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
           <div className="flex flex-col items-center text-center gap-8">
@@ -235,6 +245,11 @@ const Home = () => {
               src={logoImg}
               alt="Blush Hair & Spa"
               className="w-72 sm:w-88 lg:w-[480px] h-auto drop-shadow-2xl"
+              width={960}
+              height={599}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
             />
 
             {/* Tagline */}
@@ -269,10 +284,14 @@ const Home = () => {
 
       {/* Reviews Section */}
       <section className="relative py-20">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${chandelierImg})` }}
-        ></div>
+        <img
+          src={chandelierImg}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          loading="lazy"
+          decoding="async"
+        />
         <div className="absolute inset-0 bg-blush-pink/80"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
@@ -389,7 +408,6 @@ const Home = () => {
             </svg>
           </button>
           <div
-            ref={galleryRef}
             className="relative overflow-hidden cursor-grab active:cursor-grabbing select-none"
             onMouseDown={(e) => { e.preventDefault(); handleGalleryDragStart(e.clientX); }}
             onMouseMove={(e) => handleGalleryDragMove(e.clientX)}
@@ -400,27 +418,21 @@ const Home = () => {
             onTouchEnd={handleGalleryDragEnd}
             onWheel={handleGalleryWheel}
           >
-            <div
-              className={`flex ${!isGalleryDragging ? 'transition-transform duration-500 ease-in-out' : ''}`}
-              style={{
-                transform: `translateX(calc(-${currentGalleryIndex * 100}% + ${galleryDragOffset}px))`,
-              }}
-            >
-              {galleryImages.map((image, index) => (
-                <div
-                  key={index}
-                  className="w-full flex-shrink-0"
-                >
-                  <div className="aspect-[4/3] rounded-lg overflow-hidden shadow-md border-4 border-blush-pink">
-                    <img
-                      src={image.src}
-                      alt={image.alt}
-                      className="w-full h-full object-cover"
-                      draggable={false}
-                    />
-                  </div>
-                </div>
-              ))}
+            <div className="aspect-[4/3] rounded-lg overflow-hidden shadow-md border-4 border-blush-pink bg-blush-peach/20">
+              <img
+                key={currentGalleryImage.src}
+                src={currentGalleryImage.src}
+                alt={currentGalleryImage.alt}
+                className="w-full h-full object-cover"
+                draggable={false}
+                loading="eager"
+                decoding="async"
+                fetchPriority={currentGalleryIndex === 0 ? 'high' : 'auto'}
+                style={{
+                  transform: `translateX(${galleryDragOffset / 12}px)`,
+                  transition: isGalleryDragging ? 'none' : 'transform 300ms ease',
+                }}
+              />
             </div>
           </div>
           </div>

@@ -78,6 +78,11 @@ const Navbar = () => {
                 src={logoImg}
                 alt="Blush Hair & Spa"
                 className="w-32 h-auto"
+                width={960}
+                height={599}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
               />
             </div>
           </Link>

@@ -41,10 +41,16 @@ const Stylists = () => {
     <div>
       {/* Hero */}
       <section className="relative h-[300px] flex items-center">
-        <div
-          className="absolute inset-0 bg-cover"
-          style={{ backgroundImage: `url(${chandelierImg})`, backgroundPosition: 'center 65%' }}
-        ></div>
+        <img
+          src={chandelierImg}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: 'center 65%' }}
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/30 to-black/20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="font-script text-5xl sm:text-6xl text-white mb-4">Meet Our Team</h1>
@@ -70,6 +76,11 @@ const Stylists = () => {
                       src={stylist.image}
                       alt={stylist.name}
                       className="w-full h-full object-cover"
+                      width={802}
+                      height={1000}
+                      loading={index === 0 ? 'eager' : 'lazy'}
+                      decoding="async"
+                      fetchPriority={index === 0 ? 'high' : 'auto'}
                     />
                   </div>
                 </div>

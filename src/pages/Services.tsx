@@ -63,10 +63,16 @@ const Services = () => {
     <div>
       {/* Hero */}
       <section className="relative h-[300px] flex items-center">
-        <div
-          className="absolute inset-0 bg-cover"
-          style={{ backgroundImage: `url(${flowerWallImg})`, backgroundPosition: 'center 30%' }}
-        ></div>
+        <img
+          src={flowerWallImg}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: 'center 30%' }}
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/30 to-black/20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="font-script text-5xl sm:text-6xl text-white mb-6">Our Services</h1>
