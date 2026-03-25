@@ -1,5 +1,16 @@
+import { preload } from 'react-dom';
 import ContactForm from '../components/ContactForm';
 import flowerWall2Img from '../assets/flower_wall2.jpeg';
+import flowerWall2ImgSmall from '../assets/flower_wall2-sm.jpeg';
+
+const careersHeroSrcSet = `${flowerWall2ImgSmall} 380w, ${flowerWall2Img} 713w`;
+
+preload(flowerWall2Img, {
+  as: 'image',
+  imageSrcSet: careersHeroSrcSet,
+  imageSizes: '100vw',
+  fetchPriority: 'high',
+});
 
 const Careers = () => {
   return (
@@ -8,6 +19,8 @@ const Careers = () => {
       <section className="relative h-[300px] flex items-center">
         <img
           src={flowerWall2Img}
+          srcSet={careersHeroSrcSet}
+          sizes="100vw"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
@@ -15,6 +28,8 @@ const Careers = () => {
           loading="eager"
           decoding="async"
           fetchPriority="high"
+          width={713}
+          height={1440}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/30 to-black/20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">

@@ -1,5 +1,16 @@
+import { preload } from 'react-dom';
 import ServiceCard from '../components/ServiceCard';
 import flowerWallImg from '../assets/flower_wall.jpeg';
+import flowerWallImgSmall from '../assets/flower_wall-sm.jpeg';
+
+const servicesHeroSrcSet = `${flowerWallImgSmall} 330w, ${flowerWallImg} 619w`;
+
+preload(flowerWallImg, {
+  as: 'image',
+  imageSrcSet: servicesHeroSrcSet,
+  imageSizes: '100vw',
+  fetchPriority: 'high',
+});
 
 const Services = () => {
   const serviceCategories = [
@@ -65,6 +76,8 @@ const Services = () => {
       <section className="relative h-[300px] flex items-center">
         <img
           src={flowerWallImg}
+          srcSet={servicesHeroSrcSet}
+          sizes="100vw"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
@@ -72,6 +85,8 @@ const Services = () => {
           loading="eager"
           decoding="async"
           fetchPriority="high"
+          width={619}
+          height={1440}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/30 to-black/20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">

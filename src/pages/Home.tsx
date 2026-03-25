@@ -1,19 +1,53 @@
 import { useState, useEffect, useRef } from 'react';
+import { preload } from 'react-dom';
 import ContactForm from '../components/ContactForm';
 import chandelierImg from '../assets/chandelier.jpg';
+import chandelierImgSmall from '../assets/chandelier-sm.jpg';
 import flowerWallImg from '../assets/flower_wall_cabinent_cropped.jpg';
+import flowerWallImgSmall from '../assets/flower_wall_cabinent_cropped-sm.jpg';
 import logoImg from '../assets/white_logo_transparent.png';
 import { reviews } from '../data/reviews';
 import gallery1 from '../assets/gallery_1.jpeg';
+import gallery1Small from '../assets/gallery_1-sm.jpeg';
 import gallery2 from '../assets/gallery_2.jpeg';
+import gallery2Small from '../assets/gallery_2-sm.jpeg';
 import gallery3 from '../assets/gallery_3.jpeg';
+import gallery3Small from '../assets/gallery_3-sm.jpeg';
 import gallery4 from '../assets/gallery_4.jpeg';
+import gallery4Small from '../assets/gallery_4-sm.jpeg';
+
+const homeHeroSrcSet = `${flowerWallImgSmall} 768w, ${flowerWallImg} 1440w`;
+const reviewsHeroSrcSet = `${chandelierImgSmall} 768w, ${chandelierImg} 1600w`;
+
+preload(flowerWallImg, {
+  as: 'image',
+  imageSrcSet: homeHeroSrcSet,
+  imageSizes: '100vw',
+  fetchPriority: 'high',
+});
+preload(logoImg, { as: 'image', fetchPriority: 'high' });
 
 const galleryImages = [
-  { src: gallery1, alt: 'Blush front desk with chandeliers and styling stations' },
-  { src: gallery2, alt: 'Salon waiting area with pink curtains and floral decor' },
-  { src: gallery3, alt: 'Shampoo stations with rose wall and gold mirrors' },
-  { src: gallery4, alt: 'Pink petal chandelier with gold accents' },
+  {
+    src: gallery1,
+    srcSet: `${gallery1Small} 800w, ${gallery1} 1600w`,
+    alt: 'Blush front desk with chandeliers and styling stations',
+  },
+  {
+    src: gallery2,
+    srcSet: `${gallery2Small} 800w, ${gallery2} 1600w`,
+    alt: 'Salon waiting area with pink curtains and floral decor',
+  },
+  {
+    src: gallery3,
+    srcSet: `${gallery3Small} 800w, ${gallery3} 1600w`,
+    alt: 'Shampoo stations with rose wall and gold mirrors',
+  },
+  {
+    src: gallery4,
+    srcSet: `${gallery4Small} 800w, ${gallery4} 1600w`,
+    alt: 'Pink petal chandelier with gold accents',
+  },
 ];
 
 const Home = () => {
@@ -230,12 +264,16 @@ const Home = () => {
       <section className="relative aspect-square md:aspect-auto md:min-h-[70vh] flex items-center">
         <img
           src={flowerWallImg}
+          srcSet={homeHeroSrcSet}
+          sizes="100vw"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover object-top"
           loading="eager"
           decoding="async"
           fetchPriority="high"
+          width={1440}
+          height={1094}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/30 to-black/20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
@@ -286,11 +324,15 @@ const Home = () => {
       <section className="relative py-20">
         <img
           src={chandelierImg}
+          srcSet={reviewsHeroSrcSet}
+          sizes="100vw"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover object-center"
           loading="lazy"
           decoding="async"
+          width={1600}
+          height={1066}
         />
         <div className="absolute inset-0 bg-blush-pink/80"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -422,12 +464,16 @@ const Home = () => {
               <img
                 key={currentGalleryImage.src}
                 src={currentGalleryImage.src}
+                srcSet={currentGalleryImage.srcSet}
+                sizes="(max-width: 1024px) 100vw, 1200px"
                 alt={currentGalleryImage.alt}
                 className="w-full h-full object-cover"
                 draggable={false}
                 loading="eager"
                 decoding="async"
                 fetchPriority={currentGalleryIndex === 0 ? 'high' : 'auto'}
+                width={1600}
+                height={1200}
                 style={{
                   transform: `translateX(${galleryDragOffset / 12}px)`,
                   transition: isGalleryDragging ? 'none' : 'transform 300ms ease',
